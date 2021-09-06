@@ -63,7 +63,7 @@ st.markdown("""
 
 st.sidebar.title("Customer Analysis")
 
-DATA_URL = ("C:/Users/JasonWong/Desktop/Porcelain/final_merge.csv")
+DATA_URL = ("./final_merge.csv")
 
 @st.cache(persist=True)
 def load_data():
