@@ -147,6 +147,17 @@ st.markdown("Now, let's breakdown the sales based on the source of sales. Are th
 
 st.sidebar.subheader("3. Sales breakdown by source")
 st.subheader("3. Sales breakdown by source")
+df_total_sales = data[['source','year_month','item_cost','unique_identifier']].groupby(['source'], as_index=False).agg(sales=pd.NamedAgg(column='item_cost', aggfunc='sum'),
+                                 orders=pd.NamedAgg(column='unique_identifier', aggfunc='count'),
+                                 customers=pd.NamedAgg(column='unique_identifier', aggfunc='nunique'),
+                                )
+df_total_sales["sales_%"] = 100 * df_total_sales["sales"] / df_total_sales["sales"].sum()
+df_total_sales["orders_%"] = 100 * df_total_sales["orders"] / df_total_sales["orders"].sum()
+df_total_sales["customers_%"] = 100 * df_total_sales["customers"] / df_total_sales["customers"].sum()
+fig_sales_pct = px.bar(df_total_sales, x="sales_%", y="source", orientation='h')
+fig_orders_pct = px.bar(df_total_sales, x="orders_%", y="source", orientation='h')
+fig_cust_pct = px.bar(df_total_sales, x="customers_%", y="source", orientation='h')
+
 sources = data_source['source'].unique()
 choice = st.sidebar.radio('Select Source', sources)
 if len(choice) > 0:
@@ -159,6 +170,14 @@ if len(choice) > 0:
 	st.plotly_chart(fig_choice_sales)
 	st.markdown("**3c. Graph - Monthly Customers 2018, 2019 & 2020 by Source**")
 	st.plotly_chart(fig_choice_customer)
+
+st.markdown("**3d. Percentage Distribution by Source**")
+st.markdown("***Sales***")
+st.plotly_chart(fig_sales_pct)
+st.markdown("***Orders***")
+st.plotly_chart(fig_orders_pct)
+st.markdown("***Customers***")
+st.plotly_chart(fig_cust_pct)
 
 st.markdown("#### 3d. Observation")
 st.markdown("Looking at the differences between in-store and online transactions, we can see the following:")
