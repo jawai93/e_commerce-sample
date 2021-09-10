@@ -211,6 +211,10 @@ top_cust_2020 = data_2020[['unique_identifier', 'order_date', 'item_cost']].grou
 top_cust_2020.sort_values('sales')
 st.write(top_cust_2020.head(10).sort_values('sales', ascending=False))
 
+img6 = Image.open("no_of_purchases.jpg")
+st.markdown("**4d. No of Purchases per User, Distribution of users per Purchase frequency, No. of users per Age groups**")
+st.image(img6)
+
 st.markdown("#### 4d. Observation")
 st.markdown("Observing the top 10 customers each year, we can identify:")
 st.markdown("""
@@ -238,20 +242,58 @@ st.markdown("""
 	4. Most of the customer referrals are from "AMEX 2021 Promotions"
 	""")
 
-st.markdown("#### 6. Additional Insights")
+st.subheader("6. Sales by item type")
+img3 = Image.open("sales_by_itemtype.jpg")
+st.markdown("**6a. Sales Distribution by Item Type**")
+st.image(img3)
+
+st.markdown("#### 6b. Observation")
 st.markdown("""
-	1. Explore what products are popular among the age groups.
-	2. Explore how much and how often each age group spend in-store and online.
-	3.. Explore how many days since their last purchase.
-	4. Calculate the cost of customer Acquisition from the different promotions/packages.
+	1. Transactions of Services ilarger than the other product significantly, more than twice of the runner up.
+	2. The most popular Service is the 'Quintessential Facial' service.
+	""")
+
+st.subheader("7. Sales on weekday/weekend per source")
+img4 = Image.open("day_end_sales.jpg")
+st.markdown("**7a.  Sales on weekday/weekend per source**")
+st.image(img4)
+
+st.markdown("#### 7b. Observation")
+st.markdown("""
+	1. The ratio of in-store to online sales during weekdays and weekends are similar.
+	2. The transactions in-store are much larger than the ones online.
+	""")
+
+st.subheader("8. Sales per ReferralSource")
+img5 = Image.open("sales_referral.jpg")
+st.markdown("**8a.  Sales per ReferralSource**")
+st.image(img5)
+
+st.markdown("#### 8b. Observation")
+st.markdown("""
+	1. The leading referral source for customers is "AMEX 2021 Promottions", followed by customers who did not provide their referral source.
+	2. The name of the referral source "Amex 2021" is confusing because none of the customers in the dataset used it in 2021. 
+	""")
+
+st.markdown("#### 6. Additional Insights")
+st.markdown("")
+st.markdown("""
+	1. Explore what products are popular among the age groups 
+	2. Explore how much and how often each age group spend in-store and online
+	3. Explore the trends on the weekend and weekdays
+	4. Explore how many days since their last purchase
+	5. Calculate the cost of customer acquisition from the different promotions/packages, the conversion rate.
+	6. How many of the new customers gained from the spikes and how many of them returned?
 	""")
 
 st.markdown("#### 7. Action Plan(Business)")
 st.markdown("""
-	1. Customize promotions and product recommendations according to age groups.
-	2. Explore how much and how often each age group spend in-store and online.
-	3. Introduce new store opening hours based on customer density throughout the week or festive seasons.
-
+	1. Customize promotions and product recommendations according to age groups
+	2. Explore how much and how often each age group spend in-store and online
+	3. Send follow-up emails to users with promotions and sales after they are inactive for 100 days since last visit
+	4. From the results we can clearly see that the in-store transactions are larger than the ones online. We can explore the following,
+	perform a cost benefit analysis between boosting your online presence or to open a new branch in Singapore/China. Since most of your in-store busisness are contributed from services,
+	it makes sense the next step of expansion is to opena a brnach but more data will be required to justify this decision. 
 	""")
 
 st.markdown("#### 7. Action Plan(Internal)")
@@ -259,12 +301,15 @@ st.markdown("In order for the action plans above to be feasible, I suggest the f
 st.markdown("""
 	1. Add additional data points to collect to obtain a more accurate and comprehensive overview of the business:
 		a. Dates should be reported with a uniform format
-		b. Transactions will need to be 
-	2. Customize promotions and product recommendations according to age groups
-	2. Explore how much and how often each age group spend in-store and online
+		b. Transactions should be tracked with a unique id just like there is a unique id for users
+		c. gender of customers can help gain more insights as well
+		d. In-store transactions should be categorized into the branches you have. This allows you to see which branch may be overbooked.
+		This is a good indicator to determine whether or not to open the 4th branch in Singapore.
+
+	2. Naming convention for promotions/referrals can be clearer and have a time period associated with it for easier traceability
+	3. Products and services should be categorized even further. For example, for products, we can categorize them to serum, clenaser, toner, moisturizer
+	or by their line. Services can be categorized into facial, fusion, body etc. This allows us to better track the popularity of your product.
+	4. We can add web analytics to your e-commerce sites to gain insights of your web traffic. We can identify the averge browsing times of the your customers,
+	rates of cart abandonment as well as appointment abandonment.
 
 	""")
-# total=data.groupby(['year'], as_index=False).agg(sales=pd.NamedAgg(column='item_cost', aggfunc='sum'),
-#                                  orders=pd.NamedAgg(column='unique_identifier', aggfunc='count'),
-#                                 )
-# data_sales_2018 = px.data.gapminder().query("year == 2018")
