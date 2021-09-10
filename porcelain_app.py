@@ -39,7 +39,8 @@ st.markdown(
 st.markdown("## YEAR 2018, 2019 and 2020")
 
 st.markdown("# Introduction")
-st.markdown("In this report, we are going to analyze Porcelain's e-commerce and in-store dataset that contains transactions occuring over 3 years - 2018, 2019 and 2020.")
+st.markdown("Porcelain is a cult-premium skincare brand from Singapore with a vision to marry craftsmanship and technology to create a future of skincare.\
+	The report details the analysis and findings of Porcelain's e-commerce and in-store dataset that contains transactions that occurred over 3 years - 2018, 2019 and 2020.")
 st.markdown("The goal of this analysis is to identify key trends and patterns \
 to gain insights on our customer's loyalty to the brand. We will then use these insights to come up with an action plan to acquire suitable customers and earning their loyalty.")
 
@@ -183,7 +184,7 @@ st.markdown("#### 3d. Observation")
 st.markdown("Looking at the differences between in-store and online transactions, we can see the following:")
 st.markdown("""
 	1. There are 4 increasingly large peaks for online sales and number of customers.
-	2. There are 2 peaks February 2018 and Aug 2019 for in-store sales.
+	2. There are 2 peaks in February 2018 and Aug 2019 for in-store sales.
 	3. There is a decline in in-store sales and customers in April 2020, due to the pandemic.
 	""")
 
@@ -239,17 +240,17 @@ st.markdown("""
 
 st.markdown("#### 6. Additional Insights")
 st.markdown("""
-	1. Explore what products are popular among the age groups 
-	2. Explore how much and how often each age group spend in-store and online
-	3. Explore the trends on the weekend and weekdays
-	4. Explore how many days since their last purchase
-	4. Calculate the cost of customer Acquisition from the different promotions/packages
+	1. Explore what products are popular among the age groups.
+	2. Explore how much and how often each age group spend in-store and online.
+	3.. Explore how many days since their last purchase.
+	4. Calculate the cost of customer Acquisition from the different promotions/packages.
 	""")
 
 st.markdown("#### 7. Action Plan(Business)")
 st.markdown("""
-	1. Customize promotions and product recommendations according to age groups
-	2. Explore how much and how often each age group spend in-store and online
+	1. Customize promotions and product recommendations according to age groups.
+	2. Explore how much and how often each age group spend in-store and online.
+	3. Introduce new store opening hours based on customer density throughout the week or festive seasons.
 
 	""")
 
